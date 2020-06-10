@@ -1,0 +1,16 @@
+version: "3"
+services: 
+    nodeapp:
+        build : .
+        volumes: 
+            - .:/usr/src/app
+        working_dir: /usr/src/app
+        ports: 
+            - "9955:8000"
+        command: npm start
+    mysql:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: test
+        ports: 
+            - "3308:3306"
